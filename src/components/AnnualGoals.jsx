@@ -35,20 +35,19 @@ function BillingCycleNote({ latestMonth }) {
         {[1, 2, 3].map(p => (
           <div key={p} style={{
             display: 'flex', alignItems: 'center', gap: 6,
-            opacity: p === pos ? 1 : 0.5,
             fontWeight: p === pos ? 600 : 400,
-            color: p === pos ? COLORS.textPrimary : COLORS.textMuted,
+            color: p === pos ? COLORS.textPrimary : COLORS.textSecondary,
           }}>
             <span style={{
               width: 8, height: 8, borderRadius: '50%',
-              background: p === pos ? COLORS.teal : COLORS.border,
+              background: p === pos ? COLORS.teal : COLORS.textMuted,
               display: 'inline-block',
             }} />
             Mo {p}: {labels[p - 1]}
           </div>
         ))}
       </div>
-      <div style={{ fontSize: 12, color: COLORS.textMuted }}>
+      <div style={{ fontSize: 12, color: COLORS.textSecondary }}>
         Revenue swings ~$29K between trough and peak months (~19% on a $150K base). Compare same-month-in-quarter YoY or use full-quarter totals for an apples-to-apples view.
       </div>
     </div>
