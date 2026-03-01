@@ -35,7 +35,7 @@ export default function KPICard({ label, actual, target, subtitle, compact = fal
       <div style={{ fontSize: compact ? 12 : 13, color: COLORS.textSecondary, marginBottom: 8, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
         {label}
       </div>
-      <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4, flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 10, flexWrap: 'wrap' }}>
         <span style={{ fontSize: compact ? 24 : 28, fontWeight: 700, color: COLORS.textPrimary }}>
           {prefix === '$' ? fmtDollar(displayActual) : displayActual}
         </span>
@@ -53,16 +53,6 @@ export default function KPICard({ label, actual, target, subtitle, compact = fal
           {displayLabel}
         </span>
       </div>
-      {baseline != null && (
-        <div style={{ fontSize: 12, color: COLORS.textSecondary, marginBottom: subtitle ? 4 : 10 }}>
-          Currently {fmtCompact(actual)} of {fmtCompact(target)} goal
-        </div>
-      )}
-      {subtitle && (
-        <div style={{ fontSize: 12, color: COLORS.textSecondary, marginBottom: 10 }}>
-          {subtitle}
-        </div>
-      )}
       <div style={{
         height: 6,
         background: COLORS.border,
@@ -77,6 +67,16 @@ export default function KPICard({ label, actual, target, subtitle, compact = fal
           transition: 'width 0.6s ease',
         }} />
       </div>
+      {baseline != null && (
+        <div style={{ fontSize: 12, color: COLORS.textSecondary, marginTop: 8 }}>
+          Currently {fmtCompact(actual)} of {fmtCompact(target)} goal
+        </div>
+      )}
+      {subtitle && (
+        <div style={{ fontSize: 12, color: COLORS.textSecondary, marginTop: baseline != null ? 4 : 8 }}>
+          {subtitle}
+        </div>
+      )}
     </div>
   );
 }
