@@ -1,0 +1,87 @@
+{
+  "_comment": "PIC ELT Financial Dashboard — FY2026 Actuals. To add a new month: append an object to the 'months' array with fields: month, quarter, revenue, cogs, grossProfit, expenses, netIncome, newBizClosed, isEstimated (true if using projections), and py_ prefixed fields for prior-year comparisons. Set isEstimated to false once books are closed.",
+  "lastUpdated": "2026-02-28",
+  "fte": 22.6,
+  "annualTargets": {
+    "revenue": 2750000,
+    "profit": 80000,
+    "revPerFte": 127000
+  },
+  "quarterlyTargets": {
+    "Q1": { "revenue": 620000, "profit": 12000, "revPerFte": 110000 },
+    "Q2": { "revenue": 700000, "profit": 20000, "revPerFte": 127000 },
+    "Q3": { "revenue": 700000, "profit": 22000, "revPerFte": 127000 },
+    "Q4": { "revenue": 730000, "profit": 26000, "revPerFte": 127000 }
+  },
+  "newBizTargets": {
+    "annual": 625000,
+    "Q1": 155000,
+    "Q2": 225000,
+    "Q3": 135000,
+    "Q4": 110000,
+    "monthly": {
+      "Jan": 45000,
+      "Feb": 55000,
+      "Mar": 55000,
+      "Apr": 75000,
+      "May": 75000,
+      "Jun": 75000,
+      "Jul": 45000,
+      "Aug": 45000,
+      "Sep": 45000,
+      "Oct": 35000,
+      "Nov": 40000,
+      "Dec": 35000
+    }
+  },
+  "budget": {
+    "Jan": { "revenue": 179294.27, "cogs": 93496.97, "expenses": 114992.13 },
+    "Feb": { "revenue": 155852.16, "cogs": 91650.08, "expenses": 99655.58 },
+    "Mar": { "revenue": 255245.38, "cogs": 92638.64, "expenses": 105490.29 },
+    "Apr": { "revenue": 147247.03, "cogs": 90059.43, "expenses": 113395.48 },
+    "May": { "revenue": 147721.77, "cogs": 90714.21, "expenses": 107371.52 },
+    "Jun": { "revenue": 218924.06, "cogs": 90094.71, "expenses": 103125.90 },
+    "Jul": { "revenue": 152303.26, "cogs": 90220.02, "expenses": 107573.48 },
+    "Aug": { "revenue": 219273.44, "cogs": 91098.69, "expenses": 100039.00 },
+    "Sep": { "revenue": 143883.50, "cogs": 96038.75, "expenses": 109916.28 },
+    "Oct": { "revenue": 151564.10, "cogs": 90243.74, "expenses": 99487.84 },
+    "Nov": { "revenue": 175161.69, "cogs": 91794.78, "expenses": 104127.56 },
+    "Dec": { "revenue": 243384.71, "cogs": 92489.15, "expenses": 113742.79 }
+  },
+  "months": [
+    {
+      "month": "Jan",
+      "quarter": "Q1",
+      "revenue": 179294.27,
+      "cogs": 93496.97,
+      "grossProfit": 85797.30,
+      "expenses": 114992.13,
+      "netIncome": -29098.46,
+      "newBizClosed": 54600,
+      "fte": 22.6,
+      "isEstimated": true,
+      "py_revenue": 151423,
+      "py_cogs": 66149,
+      "py_grossProfit": 85274,
+      "py_expenses": 141551,
+      "py_netIncome": -55952
+    },
+    {
+      "month": "Feb",
+      "quarter": "Q1",
+      "revenue": 176421.90,
+      "cogs": 85695.20,
+      "grossProfit": 90726.70,
+      "expenses": 105870.84,
+      "netIncome": -14996.98,
+      "newBizClosed": 71435,
+      "fte": null,
+      "isEstimated": false,
+      "py_revenue": 0,
+      "py_cogs": 0,
+      "py_grossProfit": 0,
+      "py_expenses": 0,
+      "py_netIncome": 0
+    }
+  ]
+}
