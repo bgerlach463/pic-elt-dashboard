@@ -1,7 +1,7 @@
 import SectionTitle from './SectionTitle';
 import { COLORS, ALL_MONTHS, fmtCompact } from '../utils';
 
-function MetricRow({ label, months, allMonths, getValue, formatValue, getDelta, deltaColors }) {
+function MetricRow({ label, months, allMonths, getValue, formatValue, getDelta, deltaColors, baselineLabel }) {
   return (
     <>
       <div style={{ fontSize: 13, fontWeight: 600, color: COLORS.textSecondary, marginBottom: 10, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
@@ -12,6 +12,7 @@ function MetricRow({ label, months, allMonths, getValue, formatValue, getDelta, 
           const idx = allMonths.findIndex(m => m.month === mo);
           const hasData = idx !== -1;
           const value = hasData ? getValue(allMonths[idx]) : null;
+          const isBaseline = hasData && idx === 0 && baselineLabel;
           const delta = hasData && idx > 0 ? getDelta(allMonths[idx], allMonths[idx - 1]) : null;
 
           let deltaColor = COLORS.textMuted;
@@ -36,6 +37,11 @@ function MetricRow({ label, months, allMonths, getValue, formatValue, getDelta, 
                   <div style={{ fontSize: 18, fontWeight: 700, color: COLORS.textPrimary }}>
                     {formatValue(value)}
                   </div>
+                  {isBaseline && (
+                    <div style={{ fontSize: 10, fontWeight: 600, color: COLORS.yellow }}>
+                      {baselineLabel}
+                    </div>
+                  )}
                   {delta !== null && (
                     <div style={{ fontSize: 11, fontWeight: 600, color: deltaColor }}>
                       {delta > 0 ? '+' : ''}{formatValue(delta)}
@@ -95,6 +101,7 @@ export default function FTETracker({ data }) {
         formatValue={v => fmtCompact(v)}
         getDelta={(curr, prev) => curr.revPerFte - prev.revPerFte}
         deltaColors={{ up: COLORS.green, down: COLORS.red }}
+        baselineLabel="BASELINE"
       />
     </section>
   );
