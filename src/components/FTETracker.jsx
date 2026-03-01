@@ -1,35 +1,23 @@
 import SectionTitle from './SectionTitle';
-import { COLORS, ALL_MONTHS } from '../utils';
+import { COLORS, ALL_MONTHS, fmtCompact } from '../utils';
 
-export default function FTETracker({ data }) {
-  const { months, fte: defaultFte } = data;
-  const reported = {};
-  months.forEach(m => { reported[m.month] = m.fte || defaultFte; });
-
-  // Build ordered list of reported months for delta calculation
-  const reportedMonths = months.map(m => ({
-    month: m.month,
-    fte: m.fte || defaultFte,
-  }));
-
+function MetricRow({ label, months, allMonths, getValue, formatValue, getDelta, deltaColors }) {
   return (
-    <section>
-      <SectionTitle>FTE by Month</SectionTitle>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(110px, 1fr))', gap: 8 }}>
+    <>
+      <div style={{ fontSize: 13, fontWeight: 600, color: COLORS.textSecondary, marginBottom: 10, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+        {label}
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(110px, 1fr))', gap: 8, marginBottom: 20 }}>
         {ALL_MONTHS.map(mo => {
-          const hasData = reported[mo] !== undefined;
-          const fte = reported[mo];
+          const idx = allMonths.findIndex(m => m.month === mo);
+          const hasData = idx !== -1;
+          const value = hasData ? getValue(allMonths[idx]) : null;
+          const delta = hasData && idx > 0 ? getDelta(allMonths[idx], allMonths[idx - 1]) : null;
 
-          // Calculate delta from previous month
-          let delta = null;
-          if (hasData) {
-            const idx = reportedMonths.findIndex(m => m.month === mo);
-            if (idx > 0) {
-              delta = fte - reportedMonths[idx - 1].fte;
-            }
+          let deltaColor = COLORS.textMuted;
+          if (delta !== null && deltaColors) {
+            deltaColor = delta > 0 ? deltaColors.up : delta < 0 ? deltaColors.down : COLORS.textMuted;
           }
-
-          const deltaColor = delta > 0 ? COLORS.green : delta < 0 ? COLORS.red : COLORS.textMuted;
 
           return (
             <div key={mo} style={{
@@ -45,12 +33,12 @@ export default function FTETracker({ data }) {
               </div>
               {hasData ? (
                 <>
-                  <div style={{ fontSize: 20, fontWeight: 700, color: COLORS.textPrimary }}>
-                    {fte.toFixed(1)}
+                  <div style={{ fontSize: 18, fontWeight: 700, color: COLORS.textPrimary }}>
+                    {formatValue(value)}
                   </div>
                   {delta !== null && (
                     <div style={{ fontSize: 11, fontWeight: 600, color: deltaColor }}>
-                      {delta > 0 ? '+' : ''}{delta.toFixed(1)}
+                      {delta > 0 ? '+' : ''}{formatValue(delta)}
                     </div>
                   )}
                 </>
@@ -61,6 +49,53 @@ export default function FTETracker({ data }) {
           );
         })}
       </div>
+    </>
+  );
+}
+
+export default function FTETracker({ data }) {
+  const { months, fte: defaultFte } = data;
+
+  const allMonths = months.map(m => ({
+    month: m.month,
+    fte: m.fte || defaultFte,
+    revenue: m.revenue,
+    revPerFte: (m.revenue * 12) / (m.fte || defaultFte),
+  }));
+
+  return (
+    <section>
+      <SectionTitle>Monthly Trends</SectionTitle>
+
+      <MetricRow
+        label="FTE"
+        months={months}
+        allMonths={allMonths}
+        getValue={m => m.fte}
+        formatValue={v => v.toFixed(1)}
+        getDelta={(curr, prev) => curr.fte - prev.fte}
+        deltaColors={{ up: COLORS.green, down: COLORS.red }}
+      />
+
+      <MetricRow
+        label="Revenue"
+        months={months}
+        allMonths={allMonths}
+        getValue={m => m.revenue}
+        formatValue={v => fmtCompact(v)}
+        getDelta={(curr, prev) => curr.revenue - prev.revenue}
+        deltaColors={{ up: COLORS.green, down: COLORS.red }}
+      />
+
+      <MetricRow
+        label="Rev / FTE (Annualized)"
+        months={months}
+        allMonths={allMonths}
+        getValue={m => m.revPerFte}
+        formatValue={v => fmtCompact(v)}
+        getDelta={(curr, prev) => curr.revPerFte - prev.revPerFte}
+        deltaColors={{ up: COLORS.green, down: COLORS.red }}
+      />
     </section>
   );
 }
