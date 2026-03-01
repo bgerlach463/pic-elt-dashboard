@@ -39,7 +39,7 @@ export default function QuarterlyGoals({ data }) {
           actual={Math.round(revPerFte)}
           target={targets.revPerFte}
           compact
-          baseline={95176}
+          baseline={94361}
           monthsElapsed={qMonths.length}
           totalMonths={3}
         />

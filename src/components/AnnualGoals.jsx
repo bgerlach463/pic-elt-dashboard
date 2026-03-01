@@ -37,7 +37,7 @@ export default function AnnualGoals({ data }) {
           actual={Math.round(revPerFte)}
           target={annualTargets.revPerFte}
           subtitle={`Based on ${latestFte} FTEs`}
-          baseline={95176}
+          baseline={94361}
           monthsElapsed={count}
           totalMonths={12}
         />

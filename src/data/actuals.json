@@ -52,19 +52,19 @@
     {
       "month": "Jan",
       "quarter": "Q1",
-      "revenue": 179294.27,
-      "cogs": 93496.97,
-      "grossProfit": 85797.30,
-      "expenses": 114992.13,
-      "netIncome": -29098.46,
+      "revenue": 177706.52,
+      "cogs": 92136.06,
+      "grossProfit": 85570.46,
+      "expenses": 116155.67,
+      "netIncome": -30485.92,
       "newBizClosed": 54600,
       "fte": 22.6,
-      "isEstimated": true,
-      "py_revenue": 151423,
-      "py_cogs": 66149,
-      "py_grossProfit": 85274,
-      "py_expenses": 141551,
-      "py_netIncome": -55952
+      "isEstimated": false,
+      "py_revenue": 151561.95,
+      "py_cogs": 93212.96,
+      "py_grossProfit": 58348.99,
+      "py_expenses": 113281.12,
+      "py_netIncome": -54835.76
     },
     {
       "month": "Feb",
@@ -77,11 +77,11 @@
       "newBizClosed": 71435,
       "fte": 21.4,
       "isEstimated": false,
-      "py_revenue": 0,
-      "py_cogs": 0,
-      "py_grossProfit": 0,
-      "py_expenses": 0,
-      "py_netIncome": 0
+      "py_revenue": 227119.23,
+      "py_cogs": 92289.17,
+      "py_grossProfit": 134830.06,
+      "py_expenses": 98138.02,
+      "py_netIncome": 36723.92
     }
   ]
 }
