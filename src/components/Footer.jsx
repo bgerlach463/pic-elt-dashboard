@@ -8,7 +8,7 @@ export default function Footer({ months }) {
       textAlign: 'center',
       padding: '24px 32px',
       borderTop: `1px solid ${COLORS.border}`,
-      color: COLORS.textMuted,
+      color: COLORS.textSecondary,
       fontSize: 13,
     }}>
       PIC | Walk With You Marketing® · ELT Fancial Dashboard · Next update: {nextMonth} close

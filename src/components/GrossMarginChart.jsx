@@ -61,7 +61,7 @@ export default function GrossMarginChart({ months }) {
                   borderRadius: '4px 4px 0 0',
                   transition: 'height 0.6s ease',
                 }} />
-                <div style={{ fontSize: 11, color: COLORS.textMuted, marginTop: 6, fontWeight: 600 }}>
+                <div style={{ fontSize: 11, color: COLORS.textSecondary, marginTop: 6, fontWeight: 600 }}>
                   {bar.month}
                 </div>
               </div>

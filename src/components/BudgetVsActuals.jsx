@@ -3,7 +3,7 @@ import { COLORS, fmtDollar, fmtPct } from '../utils';
 
 function VarianceBadge({ variance, variancePct, invertColor }) {
   const flagged = Math.abs(variancePct) > 10;
-  if (!flagged) return <span style={{ fontSize: 13, color: COLORS.textMuted }}>{fmtPct(variancePct)}</span>;
+  if (!flagged) return <span style={{ fontSize: 13, color: COLORS.textSecondary }}>{fmtPct(variancePct)}</span>;
 
   // For revenue/profit: red if under (negative variance)
   // For cogs/expenses: red if over (positive variance means over budget)
@@ -77,7 +77,7 @@ export default function BudgetVsActuals({ selectedData, budget }) {
                   padding: '12px 16px',
                   fontSize: 12,
                   fontWeight: 600,
-                  color: COLORS.textMuted,
+                  color: COLORS.textSecondary,
                   textTransform: 'uppercase',
                   letterSpacing: '0.5px',
                   textAlign: i === 0 ? 'left' : 'right',

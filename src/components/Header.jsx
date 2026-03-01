@@ -45,7 +45,7 @@ export default function Header({ monthCount, lastUpdated }) {
         <div style={{ fontSize: 14, fontWeight: 600, color: COLORS.teal }}>
           {monthCount} of 12 months
         </div>
-        <div style={{ fontSize: 12, color: COLORS.textMuted }}>
+        <div style={{ fontSize: 12, color: COLORS.textSecondary }}>
           Updated {lastUpdated}
         </div>
       </div>

@@ -39,7 +39,7 @@ export default function KPICard({ label, actual, target, subtitle, compact = fal
         <span style={{ fontSize: compact ? 24 : 28, fontWeight: 700, color: COLORS.textPrimary }}>
           {prefix === '$' ? fmtDollar(displayActual) : displayActual}
         </span>
-        <span style={{ fontSize: 13, color: COLORS.textMuted }}>
+        <span style={{ fontSize: 13, color: COLORS.textSecondary }}>
           of {prefix === '$' ? fmtCompact(displayTarget) : displayTarget}
         </span>
         <span style={{
@@ -59,7 +59,7 @@ export default function KPICard({ label, actual, target, subtitle, compact = fal
         </div>
       )}
       {subtitle && (
-        <div style={{ fontSize: 12, color: COLORS.textMuted, marginBottom: 10 }}>
+        <div style={{ fontSize: 12, color: COLORS.textSecondary, marginBottom: 10 }}>
           {subtitle}
         </div>
       )}

@@ -67,7 +67,7 @@ export default function YearOverYear({ selectedData }) {
                   padding: '12px 16px',
                   fontSize: 12,
                   fontWeight: 600,
-                  color: COLORS.textMuted,
+                  color: COLORS.textSecondary,
                   textTransform: 'uppercase',
                   letterSpacing: '0.5px',
                   textAlign: i === 0 ? 'left' : 'right',

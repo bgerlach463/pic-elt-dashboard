@@ -63,7 +63,7 @@ export default function MonthSelector({ availableMonths, selectedMonths, onToggl
             );
           })}
         </div>
-        <div style={{ fontSize: 11, color: COLORS.textMuted, marginTop: 8 }}>
+        <div style={{ fontSize: 11, color: COLORS.textSecondary, marginTop: 8 }}>
           <span style={{ display: 'inline-block', width: 6, height: 6, borderRadius: '50%', background: COLORS.yellow, marginRight: 4, verticalAlign: 'middle' }} />
           Estimated / projected data
         </div>

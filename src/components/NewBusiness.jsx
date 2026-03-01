@@ -24,7 +24,7 @@ function MonthGrid({ months, newBizTargets }) {
             textAlign: 'center',
             opacity: hasData ? 1 : 0.5,
           }}>
-            <div style={{ fontSize: 11, color: COLORS.textMuted, marginBottom: 4, fontWeight: 600, textTransform: 'uppercase' }}>
+            <div style={{ fontSize: 11, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 600, textTransform: 'uppercase' }}>
               {mo}
             </div>
             {hasData ? (
@@ -32,7 +32,7 @@ function MonthGrid({ months, newBizTargets }) {
                 <div style={{ fontSize: 16, fontWeight: 700, color: hit ? COLORS.green : COLORS.red }}>
                   {fmtCompact(actual)}
                 </div>
-                <div style={{ fontSize: 11, color: COLORS.textMuted }}>
+                <div style={{ fontSize: 11, color: COLORS.textSecondary }}>
                   of {fmtCompact(target)}
                 </div>
               </>
@@ -68,7 +68,7 @@ function QuarterBars({ months, newBizTargets }) {
           <div key={q} style={{ flex: 1, minWidth: 140 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
               <span style={{ fontSize: 12, fontWeight: 600, color: COLORS.textSecondary }}>{q}</span>
-              <span style={{ fontSize: 12, color: COLORS.textMuted }}>
+              <span style={{ fontSize: 12, color: COLORS.textSecondary }}>
                 {hasData ? fmtCompact(actual) : '$0'} / {fmtCompact(target)}
               </span>
             </div>

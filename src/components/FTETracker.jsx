@@ -29,7 +29,7 @@ function MetricRow({ label, months, allMonths, getValue, formatValue, getDelta, 
               textAlign: 'center',
               opacity: hasData ? 1 : 0.5,
             }}>
-              <div style={{ fontSize: 11, color: COLORS.textMuted, marginBottom: 4, fontWeight: 600, textTransform: 'uppercase' }}>
+              <div style={{ fontSize: 11, color: COLORS.textSecondary, marginBottom: 4, fontWeight: 600, textTransform: 'uppercase' }}>
                 {mo}
               </div>
               {hasData ? (
