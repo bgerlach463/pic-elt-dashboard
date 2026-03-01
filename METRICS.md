@@ -1,10 +1,12 @@
-## FTE Calculation Rules
+# ELT Dashboard — Metric Definitions
+
+## FTE Calculation
 - Salaried/full-time = 1.0 FTE each, regardless of hours logged
-- Hourly/part-time/contractors = actual Harvest hours ÷ 176 (40 hrs/week × 4.4 weeks)
-- Include ALL team members including non-producing roles
+- Hourly/part-time/contractors = actual Harvest hours ÷ 176
+- Include ALL team members including non-producing roles (e.g., office manager)
 - Source: monthly Harvest Users Report PDF
 
-## Salaried (Full-Time) — 1.0 FTE each
+### Salaried (1.0 FTE each)
 1. Alicia Dorsett
 2. Blaine Clapper
 3. Brad Gerlach
@@ -20,15 +22,22 @@
 13. Tiffany Ferris
 14. Trista Rodriguez
 15. Maria Jose Marfetan
-16. Ramiro Iriñiz (moved to part-time/hourly in Feb 2026)
+16. Ramiro Iriñiz (moved to hourly Feb 2026)
 
-## Hourly/Part-Time/Contractors — hours ÷ 176
-Everyone else on the Harvest report not listed above.
+### Hourly/Contractors (hours ÷ 176)
+Everyone on the Harvest report not listed above.
 
-## January 2026: 22.6 FTE
-- 16 salaried = 16.0
-- Hourly total = 6.6
-- Combined = 22.6
+### Roster Changes
+- Feb 2026: Ramiro moves to hourly, salaried count drops to 15
 
-## Roster Changes
-- Feb 2026: Ramiro moves to hourly (salaried drops to 15)
+## Monthly Update Process
+
+Source files go in `source-files/YYYY-M/` (e.g., `source-files/2026-3/` for March 2026).
+
+1. Create the month's folder in `source-files/` (e.g., `source-files/2026-3/`)
+2. Upload Budget vs. Actuals (from QuickBooks) into that folder
+3. Upload P&L YoY (from QuickBooks) into that folder
+4. Upload Harvest Users Report into that folder
+5. Provide New Business Closed number (from HubSpot)
+6. Update `src/data/actuals.json` with new month's data
+7. `npm run deploy`

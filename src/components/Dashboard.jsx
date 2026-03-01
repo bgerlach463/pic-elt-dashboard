@@ -8,6 +8,7 @@ import NewBusiness from './NewBusiness';
 import MonthSelector from './MonthSelector';
 import BudgetVsActuals from './BudgetVsActuals';
 import YearOverYear from './YearOverYear';
+import FTETracker from './FTETracker';
 import GrossMarginChart from './GrossMarginChart';
 import Footer from './Footer';
 
@@ -38,6 +39,7 @@ export default function Dashboard() {
         <AnnualGoals data={data} />
         <QuarterlyGoals data={data} />
         <NewBusiness data={data} />
+        <FTETracker data={data} />
         <MonthSelector
           availableMonths={data.months}
           selectedMonths={selectedMonths}
