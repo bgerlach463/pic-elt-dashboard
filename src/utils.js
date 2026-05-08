@@ -51,7 +51,7 @@ export function fmtPct(value, decimals = 1) {
   return value.toFixed(decimals) + '%';
 }
 
-export function statusColor(percentage, greenThreshold = 90, yellowThreshold = 75) {
+export function statusColor(percentage, greenThreshold = 90, yellowThreshold = 80) {
   if (percentage >= greenThreshold) return COLORS.green;
   if (percentage >= yellowThreshold) return COLORS.yellow;
   return COLORS.red;

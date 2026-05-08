@@ -94,7 +94,7 @@ export default function FTETracker({ data }) {
       />
 
       <MetricRow
-        label="Rev / FTE (Annualized)"
+        label="Rev / FTE"
         months={months}
         allMonths={allMonths}
         getValue={m => m.revPerFte}
