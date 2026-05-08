@@ -28,7 +28,7 @@ export default function GrossMarginChart({ months }) {
             position: 'absolute',
             left: 0,
             right: 0,
-            bottom: `${28 + (THRESHOLD / maxMargin) * 170}px`,
+            bottom: `${50 + (THRESHOLD / maxMargin) * 170}px`,
             borderTop: `2px dashed ${COLORS.red}`,
             zIndex: 1,
           }}>
