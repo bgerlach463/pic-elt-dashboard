@@ -1,6 +1,6 @@
 import KPICard from './KPICard';
 import SectionTitle from './SectionTitle';
-import { COLORS, ALL_MONTHS, QUARTER_MONTHS, fmtCompact, fmtDollar, pct, statusColor, getCurrentQuarter } from '../utils';
+import { COLORS, ALL_MONTHS, QUARTERS, QUARTER_MONTHS, fmtCompact, fmtDollar, pct, statusColor } from '../utils';
 
 function MonthGrid({ months, newBizTargets }) {
   const reported = {};
@@ -90,10 +90,8 @@ function QuarterBars({ months, newBizTargets }) {
 
 export default function NewBusiness({ data }) {
   const { months, newBizTargets } = data;
-  const quarter = getCurrentQuarter(months);
   const ytdNewBiz = months.reduce((s, m) => s + m.newBizClosed, 0);
-  const qMonths = months.filter(m => m.quarter === quarter);
-  const qNewBiz = qMonths.reduce((s, m) => s + m.newBizClosed, 0);
+  const activeQuarters = QUARTERS.filter(q => months.some(m => m.quarter === q));
 
   return (
     <section>
@@ -107,14 +105,21 @@ export default function NewBusiness({ data }) {
           monthsElapsed={months.length}
           totalMonths={12}
         />
-        <KPICard
-          label={`${quarter} New Business`}
-          actual={qNewBiz}
-          target={newBizTargets[quarter]}
-          compact
-          monthsElapsed={qMonths.length}
-          totalMonths={3}
-        />
+        {activeQuarters.map(q => {
+          const qMonths = months.filter(m => m.quarter === q);
+          const qNewBiz = qMonths.reduce((s, m) => s + m.newBizClosed, 0);
+          return (
+            <KPICard
+              key={q}
+              label={`${q} New Business`}
+              actual={qNewBiz}
+              target={newBizTargets[q]}
+              compact
+              monthsElapsed={qMonths.length}
+              totalMonths={3}
+            />
+          );
+        })}
       </div>
       <div style={{ fontSize: 13, fontWeight: 600, color: COLORS.textSecondary, marginBottom: 10, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
         Monthly Targets

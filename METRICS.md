@@ -29,6 +29,8 @@ Everyone on the Harvest report not listed above.
 
 ### Roster Changes
 - Feb 2026: Ramiro moves to hourly, salaried count drops to 15
+- Mar 2026: Sara Olujic added as salaried (salaried back to 16)
+- Apr 2026: Parker Hurley departs (salaried drops to 15)
 
 ## Monthly Update Process
 
