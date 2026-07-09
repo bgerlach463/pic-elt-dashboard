@@ -5,12 +5,12 @@ import { fmtCompact } from '../utils';
 export default function AnnualGoals({ data }) {
   const { months, annualTargets, fte: defaultFte } = data;
   const count = months.length;
-  const latestFte = months.length > 0 ? (months[months.length - 1].fte || defaultFte) : defaultFte;
+  const avgFte = count > 0 ? months.reduce((s, m) => s + (m.fte || defaultFte), 0) / count : defaultFte;
 
   const ytdRevenue = months.reduce((s, m) => s + m.revenue, 0);
   const ytdProfit = months.reduce((s, m) => s + m.netIncome, 0);
   const annualizedRevenue = count > 0 ? (ytdRevenue / count) * 12 : 0;
-  const revPerFte = count > 0 ? annualizedRevenue / latestFte : 0;
+  const revPerFte = count > 0 ? annualizedRevenue / avgFte : 0;
 
   return (
     <section>
@@ -35,7 +35,7 @@ export default function AnnualGoals({ data }) {
           label="Rev / FTE"
           actual={Math.round(revPerFte)}
           target={annualTargets.revPerFte}
-          subtitle={`Based on ${latestFte} FTEs`}
+          subtitle={`Based on ${avgFte.toFixed(1)} avg FTE`}
         />
       </div>
     </section>

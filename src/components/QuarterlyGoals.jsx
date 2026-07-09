@@ -11,12 +11,12 @@ export default function QuarterlyGoals({ data }) {
       {activeQuarters.map(quarter => {
         const targets = quarterlyTargets[quarter];
         const qMonths = months.filter(m => m.quarter === quarter);
-        const latestFte = qMonths[qMonths.length - 1].fte || defaultFte;
+        const avgFte = qMonths.reduce((s, m) => s + (m.fte || defaultFte), 0) / qMonths.length;
 
         const qRevenue = qMonths.reduce((s, m) => s + m.revenue, 0);
         const qProfit = qMonths.reduce((s, m) => s + m.netIncome, 0);
         const annualizedRev = (qRevenue / qMonths.length) * 12;
-        const revPerFte = annualizedRev / latestFte;
+        const revPerFte = annualizedRev / avgFte;
 
         return (
           <section key={quarter}>
