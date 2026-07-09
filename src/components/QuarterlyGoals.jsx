@@ -42,6 +42,7 @@ export default function QuarterlyGoals({ data }) {
                 label={`${quarter} Rev/FTE`}
                 actual={Math.round(revPerFte)}
                 target={targets.revPerFte}
+                subtitle={`Based on ${avgFte.toFixed(1)} avg FTE`}
                 compact
               />
             </div>
