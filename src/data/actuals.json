@@ -1,7 +1,7 @@
 {
   "_comment": "PIC ELT Financial Dashboard — FY2026 Actuals. To add a new month: append an object to the 'months' array with fields: month, quarter, revenue, cogs, grossProfit, expenses, netIncome, newBizClosed, isEstimated (true if using projections), and py_ prefixed fields for prior-year comparisons. Set isEstimated to false once books are closed.",
-  "lastUpdated": "2026-05-08",
-  "fte": 22.6,
+  "lastUpdated": "2026-07-09",
+  "fte": 21.4,
   "annualTargets": {
     "revenue": 2750000,
     "profit": 80000,
@@ -116,6 +116,40 @@
       "py_grossProfit": 31197.28,
       "py_expenses": 102734.25,
       "py_netIncome": -70607.99
+    },
+    {
+      "month": "May",
+      "quarter": "Q2",
+      "revenue": 215056.66,
+      "cogs": 89596.43,
+      "grossProfit": 125460.23,
+      "expenses": 106089.11,
+      "netIncome": 19647.99,
+      "newBizClosed": 105340,
+      "fte": 20.9,
+      "isEstimated": false,
+      "py_revenue": 241946.87,
+      "py_cogs": 112185.40,
+      "py_grossProfit": 129761.47,
+      "py_expenses": 115804.34,
+      "py_netIncome": 14049.25
+    },
+    {
+      "month": "Jun",
+      "quarter": "Q2",
+      "revenue": 228871.49,
+      "cogs": 95766.46,
+      "grossProfit": 133105.03,
+      "expenses": 107852.48,
+      "netIncome": 25252.55,
+      "newBizClosed": 0,
+      "fte": 21.4,
+      "isEstimated": false,
+      "py_revenue": 184666.72,
+      "py_cogs": 94903.42,
+      "py_grossProfit": 89763.30,
+      "py_expenses": 98814.99,
+      "py_netIncome": -9101.51
     }
   ]
 }
